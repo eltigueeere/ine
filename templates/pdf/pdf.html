@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>ZACATECAS</title>
+
+    <style>
+      body {font-size: 9px;}
+      h2{ font-size: 13px; }
+      .fondo{background-color: rgb(168, 134, 93);}
+      .centrado{text-align:center;}
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <p>
+            <img src="{{url_for('static', filename='head1.png')}}" >
+          </p>
+          <p>
+            ENTIDAD FEDERATIVA: <b>ZACATECAS</b> <br>
+            SIENDO LAS {{hora}} DEL DIA {{dia}} DE 2021,<br><br>
+            EN Viaducto Tlalpan No. 100 Col. Arenal Tepepan, C.P. 14610 DOMICILIO<br>
+            DEL CENTRO DE ESCRUTINIO Y CÓMPUTO, EL PERSONAL DESIGNADO DEL INSTITUTO, CON<br>
+            FUNDAMENTO EN LOS ARTÍCULOS 347 NUMERAL 2, INCISO D) Y NUMERAL 3, 349 NUMERAL 1, 352<br>
+            NUMERAL 1 Y 356, DE LA LEY GENERAL DE INSTITUCIONES Y PROCEDIMIENTOS ELECTORALES; 271,<br>
+            272, 273 NUMERAL 1, FRACCIÓN I, INCISO A), 305, NUMERAL 1, 306 NUMERAL 1 Y 307 DE LA LEY<br>
+            ELECTORAL DEL ESTADODE ZACATECAS. <br><br>
+            Y PROCEDIERON A REALIZAR EL CÓMPUTO DE ENTIDAD FEDERATIVA DE LA ELECCIÓN PARA LA<br>
+            GUBERNATURA, HACIENDO CONSTAR LOS SIGUIENTES:
+            <h2 align="center">RESULTADOS DE LA VOTACIÓN</h2>
+            <h2>TOTAL DE VOTOS EN LA ENTIDAD FEDERATIVA</h2>
+          </p>
+          <table class="table">
+              <thead class="fondo">
+                <tr>
+                  <th scope="col">Partido</th>
+                  <th scope="col">Con letra</th>
+                  <th scope="col">Con número</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for lalo in lalos %}
+                  <tr>
+                    <td><img src="{{url_for('static', filename='logos/' +lalo[0]+ '.png')}}" height="23" width="43" ></td>
+                    <td>XXXXXXXXXXX XXXXXX X XXXXX</td>
+                    <td align="right">{{ lalo[1] }}</td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+            </table>  
+          </div>
+          <!--2-->
+          <div class="col-4">   
+            <p class="centrado">
+              <img src="{{url_for('static', filename='head2.png')}}" width="396" ><br>
+              <b >DISTRIBUCIÓN FINAL DE VOTOS A PARTIDOS POLÍTICOS Y CANDIDATOS/AS</b>
+            </p>       
+            <table class="table">
+              <thead class="fondo">
+                <tr>
+                  <th scope="col">Partido</th>
+                  <th scope="col">Con letra</th>
+                  <th scope="col">Con número</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for lalo in lalos2 %}
+                  <tr>
+                    <td><img src="{{url_for('static', filename='logos/' +lalo[0]+ '.png')}}" height="23" width="23" ></td>
+                    <td>XXXXXXXXXXX XXXXXX X XXXXX</td>
+                    <td align="right">{{ lalo[1] }}</td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+            </table> 
+            <br><br>
+            <b>VOTACIÓN FINAL OBTENIDA POR LOS/AS CANDIDATOS/AS</b>                    
+            <table class="table">
+              <thead class="fondo">
+                <tr>
+                  <th scope="col">CONDIDATO/A</th>
+                  <th scope="col">(Con letra)</th>
+                  <th scope="col">(Con número)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PAN_PRI_PRD.png')}}" height="23" width="43" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PT_VERDE_MORENA_NUEVA_ALIANZA.png')}}" height="23" width="53" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/MOVIMIENTO CIUDADANO.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PAZ.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/DIGNIDAD.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PP.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/LA FAMILIA.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PES.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/RSP.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/FUERZA POR MEXICO.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CANDIDATOS/AS <br>NO REGISTRADOS/AS</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>VOTOS NULOS</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table> 
+          </div>
+          
+          <!--3-->
+          <div class="col-4">   
+            <p class="centrado">
+              <img src="{{url_for('static', filename='head3.png')}}" width="396" ><br>
+              <b>LA O EL FUNCIONARIO RESPONSABLE DESIGNADO POR EL INSTITUTO </b>
+            </p>                     
+            <table class="table">
+              <thead class="fondo">
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Firma</th>
+                  <th scope="col">T/S</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+              </tbody>
+            </table> 
+            
+            <br><br>
+            <table class="table">
+              <thead class="fondo">
+                <tr>
+                  <th scope="col">Partido</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Firmas</th>
+                  <th scope="col">P/S</th> 
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PAN.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PRI.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PRD.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PT.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/VERDE.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/MOVIMIENTO CIUDADANO.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/MORENA.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/NUEVA ALIANZA.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PAZ.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/DIGNIDAD.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PP.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/LA FAMILIA.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/PES.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/RSP.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><img src="{{url_for('static', filename='logos/FUERZA POR MEXICO.png')}}" height="23" width="23" ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table> 
+            <p>
+              UNA VEZ LLENADA Y FIRMADA EL ACTA, GUARDE EL ORIGINAL EN LA BOLSA QUE CONTIENE LAS ACTAS DE ENTIDAD FEDERATIVA LEVANTADA EN EL CENTRO DE ESCRUTINIO Y CÓMPUTO Y ENTREGUE 
+              COPIA A LAS Y LOS REPRESENTANTES DE LOS PARTIDOS POLÍTICOS.
+            </p>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pb1jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
