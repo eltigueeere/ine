@@ -50,7 +50,7 @@
               {% for lalo in lalos %}
                   <tr>
                     <td><img src="{{url_for('static', filename='logos/' +lalo[0]+ '.png')}}" height="23" width="43" ></td>
-                    <td>XXXXXXXXXXX XXXXXX X XXXXX</td>
+                    <td>{{ lalo[2] }}</td>
                     <td align="right">{{ lalo[1] }}</td>
                   </tr>
               {% endfor %}
@@ -75,84 +75,25 @@
               {% for lalo in lalos2 %}
                   <tr>
                     <td><img src="{{url_for('static', filename='logos/' +lalo[0]+ '.png')}}" height="23" width="23" ></td>
-                    <td>XXXXXXXXXXX XXXXXX X XXXXX</td>
+                    <td>{{ lalo[2] }}</td>
                     <td align="right">{{ lalo[1] }}</td>
                   </tr>
               {% endfor %}
               </tbody>
             </table> 
-            <br><br>
+            <br>
             <b>VOTACIÓN FINAL OBTENIDA POR LOS/AS CANDIDATOS/AS</b>                    
             <table class="table">
               <thead class="fondo">
-                <tr>
-                  <th scope="col">CONDIDATO/A</th>
-                  <th scope="col">(Con letra)</th>
-                  <th scope="col">(Con número)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/PAN_PRI_PRD.png')}}" height="23" width="43" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/PT_VERDE_MORENA_NUEVA_ALIANZA.png')}}" height="23" width="53" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/MOVIMIENTO CIUDADANO.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/PAZ.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/DIGNIDAD.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/PP.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/LA FAMILIA.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/PES.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/RSP.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><img src="{{url_for('static', filename='logos/FUERZA POR MEXICO.png')}}" height="23" width="23" ></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>CANDIDATOS/AS <br>NO REGISTRADOS/AS</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>VOTOS NULOS</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
+                <tbody>
+                {% for lalo in lalos3 %}
+                    <tr>
+                      <td><img src="{{url_for('static', filename='logos/' +lalo[0]+ '.png')}}" height="23" width="23" ></td>
+                      <td>{{ lalo[2] }}</td>
+                      <td align="right">{{ lalo[1] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
             </table> 
           </div>
           
