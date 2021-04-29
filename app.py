@@ -18,6 +18,7 @@ from funciones.estados import chihuahua as chihuahua
 from funciones.estados import colima as colima
 from funciones.estados import guerrero as guerrero
 from funciones.estados import sanLuisPotosi as sanLuisPotosi
+from funciones.estados import jalisco as jalisco
 
 app=Flask(__name__)
 @app.route('/zacatecas')
@@ -391,6 +392,14 @@ def sanLuisPotosiF():
     dia=time.strftime('%d', time.localtime())
     hora=time.strftime('%H:%M:%S', time.localtime())
     return render_template("pdf/sanLuisPotosi.html", lalos=sanLuisPotosi.excel01(), lalos2=sanLuisPotosi.excel02(), lalos3=sanLuisPotosi.excel03(), dia=dia, hora=hora )  
+
+
+
+@app.route('/jalisco')
+def jaliscoF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/jalisco.html", lalos=jalisco.excel01(), dia=dia, hora=hora )  
 
 
 
