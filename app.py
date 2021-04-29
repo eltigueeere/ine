@@ -15,8 +15,9 @@ from flask import Flask
 from flask import render_template
 from funciones import numero_letras as numerosLetras
 from funciones.estados import chihuahua as chihuahua
-
-
+from funciones.estados import colima as colima
+from funciones.estados import guerrero as guerrero
+from funciones.estados import sanLuisPotosi as sanLuisPotosi
 
 app=Flask(__name__)
 @app.route('/zacatecas')
@@ -367,6 +368,29 @@ def chihuahuaF():
     hora=time.strftime('%H:%M:%S', time.localtime())
     return render_template("pdf/chihuahua.html", lalos=chihuahua.excel01(), lalos2=chihuahua.excel02(), lalos3=chihuahua.excel03(), dia=dia, hora=hora )  
 
+
+
+@app.route('/colima')
+def colimaF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/colima.html", lalos=colima.excel01(), lalos2=colima.excel02(), lalos3=colima.excel03(), dia=dia, hora=hora )  
+
+
+
+@app.route('/guerrero')
+def guerreroF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/guerrero.html", lalos=guerrero.excel01(), lalos2=guerrero.excel02(), lalos3=guerrero.excel03(), dia=dia, hora=hora )  
+
+
+
+@app.route('/sanLuisPotosi')
+def sanLuisPotosiF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/sanLuisPotosi.html", lalos=sanLuisPotosi.excel01(), lalos2=sanLuisPotosi.excel02(), lalos3=sanLuisPotosi.excel03(), dia=dia, hora=hora )  
 
 
 
