@@ -14,6 +14,11 @@ from datetime import datetime
 from openpyxl import Workbook
 from pandas.core.reshape.pivot import pivot
 from funciones import numero_letras as numerosLetras
+#**********************************PDF
+from PyPDF2 import PdfFileWriter, PdfFileReader
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
 #**********************************FUNCIONES VOTOS
 def fraccionVotos(votosTotalCoalicion, dividendo):
     fracicion = votosTotalCoalicion/dividendo
@@ -287,3 +292,30 @@ print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
 print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
 print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
 #*********************PDF
+path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/"
+tb1=excel01()
+packet = io.BytesIO()
+# create a new PDF with Reportlab
+can = canvas.Canvas(packet, pagesize=letter)
+can.drawString(100, 370, tb1[0][2]) #letr
+can.drawString(280, 370, str(tb1[0][1])) #numero  350 3renglon
+can.drawString(100, 360, tb1[1][2]) #letr
+can.drawString(280, 360, str(tb1[1][1])) #numero  350 3renglon
+can.drawString(100, 350, tb1[2][2]) #letr
+can.drawString(280, 350, str(tb1[2][1])) #numero  350 3renglon
+can.save()
+
+#move to the beginning of the StringIO buffer
+packet.seek(0)
+new_pdf = PdfFileReader(packet)
+# read your existing PDF
+existing_pdf = PdfFileReader(open(path+"pdfOrg/colima.pdf", "rb"))
+output = PdfFileWriter()
+# add the "watermark" (which is the new pdf) on the existing page
+page = existing_pdf.getPage(0)
+page.mergePage(new_pdf.getPage(0))
+output.addPage(page)
+# finally, write "output" to a real file
+outputStream = open(path+"pdfNew/colima.pdf", "wb")
+output.write(outputStream)
+outputStream.close()

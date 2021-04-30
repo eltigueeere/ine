@@ -10,9 +10,14 @@ import math
 from datetime import datetime
 from openpyxl import Workbook
 from pandas.core.reshape.pivot import pivot
+#**********************************PDF
+from PyPDF2 import PdfFileWriter, PdfFileReader
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
 #**********************************IMPORT
 from flask import Flask
-from flask import render_template
+from flask import render_template, send_file
 from funciones import numero_letras as numerosLetras
 from funciones.estados import chihuahua as chihuahua
 from funciones.estados import colima as colima
@@ -361,7 +366,45 @@ def index():
     print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
     #*********************PDF
     return render_template("pdf/zacatecas.html", lalos = excel01(), lalos2 = excel02(), lalos3 = excel03(), dia = dia, hora=hora )  
+    #*********************PDF
+    path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/"
+    tb1=excel01()
+    packet = io.BytesIO()
+    # create a new PDF with Reportlab
+    can = canvas.Canvas(packet, pagesize=letter)
+    can.drawString(100, 370, tb1[0][2]) #letr
+    can.drawString(280, 370, str(tb1[0][1])) #numero  350 3renglon
+    can.drawString(100, 360, tb1[1][2]) #letr
+    can.drawString(280, 360, str(tb1[1][1])) #numero  350 3renglon
+    can.drawString(100, 350, tb1[2][2]) #letr
+    can.drawString(280, 350, str(tb1[2][1])) #numero  350 3renglon
+    can.save()
 
+    #move to the beginning of the StringIO buffer
+    packet.seek(0)
+    new_pdf = PdfFileReader(packet)
+    # read your existing PDF
+    existing_pdf = PdfFileReader(open(path+"pdfOrg/zacatecas.pdf", "rb"))
+    output = PdfFileWriter()
+    # add the "watermark" (which is the new pdf) on the existing page
+    page = existing_pdf.getPage(0)
+    page.mergePage(new_pdf.getPage(0))
+    output.addPage(page)
+    # finally, write "output" to a real file
+    outputStream = open(path+"pdfNew/zacatecas.pdf", "wb")
+    output.write(outputStream)
+    outputStream.close()
+
+@app.route('/downloadZacatecas')
+def downloadZacatecasF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/zacatecas.pdf"
+	return send_file(path, as_attachment=True)
+
+
+    
+@app.route('/')
+def laloInicio():
+    return "VMRE 2021"
 
 @app.route('/chihuahua')
 def chihuahuaF():
@@ -376,6 +419,11 @@ def colimaF():
     dia=time.strftime('%d', time.localtime())
     hora=time.strftime('%H:%M:%S', time.localtime())
     return render_template("pdf/colima.html", lalos=colima.excel01(), lalos2=colima.excel02(), lalos3=colima.excel03(), dia=dia, hora=hora )  
+
+@app.route('/downloadColima')
+def downloadColimaF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/colima.pdf"
+	return send_file(path, as_attachment=True)
 
 
 
@@ -404,6 +452,6 @@ def jaliscoF():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
 
 
