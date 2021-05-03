@@ -51,6 +51,12 @@ def chihuahuaF():
     return render_template("pdf/chihuahua.html", lalos=chihuahua.excel01(), lalos2=chihuahua.excel02(), lalos3=chihuahua.excel03(), dia=dia, hora=hora )  
 
 
+@app.route('/downloadChihuahua')
+def downloadChihuahuaF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/chihuahua.pdf"
+	return send_file(path, as_attachment=True)
+
+
 
 @app.route('/colima')
 def colimaF():
@@ -63,6 +69,10 @@ def downloadColimaF():
 	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/colima.pdf"
 	return send_file(path, as_attachment=True)
 
+@app.route('/downloadGuerrero')
+def downloadGuerreroF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/guerrero.pdf"
+	return send_file(path, as_attachment=True)
 
 
 @app.route('/guerrero')
@@ -90,6 +100,7 @@ def jaliscoF():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
+    #app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
+    app.run(debug=True)
 
 
