@@ -408,5 +408,3 @@ output.addPage(page)
 outputStream = open(path+"pdfNew/colima.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
-
-print(str(tb1[10][1]))

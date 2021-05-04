@@ -69,17 +69,19 @@ def downloadColimaF():
 	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/colima.pdf"
 	return send_file(path, as_attachment=True)
 
-@app.route('/downloadGuerrero')
-def downloadGuerreroF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/guerrero.pdf"
-	return send_file(path, as_attachment=True)
-
 
 @app.route('/guerrero')
 def guerreroF():
     dia=time.strftime('%d', time.localtime())
     hora=time.strftime('%H:%M:%S', time.localtime())
     return render_template("pdf/guerrero.html", lalos=guerrero.excel01(), lalos2=guerrero.excel02(), lalos3=guerrero.excel03(), dia=dia, hora=hora )  
+
+
+@app.route('/downloadGuerrero')
+def downloadGuerreroF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/guerrero.pdf"
+	return send_file(path, as_attachment=True)
+
 
 
 
@@ -90,6 +92,11 @@ def sanLuisPotosiF():
     return render_template("pdf/sanLuisPotosi.html", lalos=sanLuisPotosi.excel01(), lalos2=sanLuisPotosi.excel02(), lalos3=sanLuisPotosi.excel03(), dia=dia, hora=hora )  
 
 
+@app.route('/downloadSanLuisPotosi')
+def downloadSanLuisPotosiF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/san_luis.pdf"
+	return send_file(path, as_attachment=True)
+
 
 @app.route('/jalisco')
 def jaliscoF():
@@ -97,6 +104,11 @@ def jaliscoF():
     hora=time.strftime('%H:%M:%S', time.localtime())
     return render_template("pdf/jalisco.html", lalos=jalisco.excel01(), dia=dia, hora=hora )  
 
+
+@app.route('/downloadJalisco')
+def downloadJaliscoF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/jalisco.pdf"
+	return send_file(path, as_attachment=True)
 
 
 if __name__ == '__main__':
