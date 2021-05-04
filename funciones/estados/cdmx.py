@@ -97,7 +97,7 @@ def elMayor(partidos):
 #**********************************
 def excel01():
     sumaColExcel01=df.groupby(by=['estados']).sum().groupby(level=[0]).cumsum().loc[estado]
-    totalDefExc = math.floor(sumaColExcel01['PAN']) + math.floor(sumaColExcel01['PRI']) + math.floor(sumaColExcel01['PRD']) + math.floor(sumaColExcel01['PT']) + math.floor(sumaColExcel01['VERDE']) + math.floor(sumaColExcel01['MOVIMIENTO_CIUDADANO']) + math.floor(sumaColExcel01['MORENA']) +  math.floor(sumaColExcel01['SOMOS']) + math.floor(sumaColExcel01['PES']) + math.floor(sumaColExcel01['HAGAMOS']) + math.floor(sumaColExcel01['FUTURO'])  + math.floor(sumaColExcel01['RSP']) + math.floor(sumaColExcel01['FUERZA_POR_MEXICO']) +  math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']) + math.floor(sumaColExcel01['VOTOS_NULOS'])
+    totalDefExc = math.floor(sumaColExcel01['PAN']) + math.floor(sumaColExcel01['PRI']) + math.floor(sumaColExcel01['PRD']) + math.floor(sumaColExcel01['PT']) + math.floor(sumaColExcel01['VERDE']) + math.floor(sumaColExcel01['MOVIMIENTO_CIUDADANO']) + math.floor(sumaColExcel01['MORENA']) +  math.floor(sumaColExcel01['ELIGE']) + math.floor(sumaColExcel01['PES']) + math.floor(sumaColExcel01['RSP']) + math.floor(sumaColExcel01['FUERZA_POR_MEXICO']) +  math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']) + math.floor(sumaColExcel01['VOTOS_NULOS'])
     datos=(
     ('PAN', math.floor(sumaColExcel01['PAN']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PAN']))),
     ('PRI', math.floor(sumaColExcel01['PRI']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PRI']))),
@@ -106,11 +106,9 @@ def excel01():
     ('PT', math.floor(sumaColExcel01['PT']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PT']))),
     ('MOVIMIENTO CIUDADANO', math.floor(sumaColExcel01['MOVIMIENTO_CIUDADANO']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['MOVIMIENTO_CIUDADANO']))),
     ('MORENA', math.floor(sumaColExcel01['MORENA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['MORENA']))),
-    ('SOMOS', math.floor(sumaColExcel01['SOMOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['SOMOS']))),
+    ('ELIGE', math.floor(sumaColExcel01['ELIGE']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['ELIGE']))),
     ('PES', math.floor(sumaColExcel01['PES']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PES']))),
-    ('HAGAMOS', math.floor(sumaColExcel01['HAGAMOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['HAGAMOS']))),
     ('RSP', math.floor(sumaColExcel01['RSP']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['RSP']))),
-    ('FUTURO', math.floor(sumaColExcel01['FUTURO']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['FUTURO']))),
     ('FUERZA POR MEXICO', math.floor(sumaColExcel01['FUERZA_POR_MEXICO']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['FUERZA_POR_MEXICO']))),
     ('CANDIDATOS_NO_REGISTRADOS', math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']))),
     ('VOTOS_NULOS', math.floor(sumaColExcel01['VOTOS_NULOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VOTOS_NULOS']))),
@@ -203,7 +201,7 @@ def excel03():
     return datos
 #**********************************VAR
 partidos=[]
-estado='Jalisco'
+estado='Cdmx'
 coalicionDeCuatroPartidoUno=""
 coalicionDeCuatroPartidoDos=""
 coalicionDeCuatroPartidoTres=""
@@ -282,42 +280,38 @@ tb1=excel01()
 packet = io.BytesIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
-can.drawString(133, 719, "JALISCO")
-can.drawString(110, 705, str(hora))
+can.drawString(133, 719, "CDMX")
+can.drawString(80, 705, str(hora))
 can.drawString(223, 705, str(dia))
 can.drawString(80, 696, "CENTRO DE ESCRUTINIO Y CÓMPUTO")
-can.drawString(200, 600, tb1[0][2]) 
-can.drawString(530, 600, str(tb1[0][1])) 
-can.drawString(200, 583, tb1[1][2]) 
-can.drawString(530, 583, str(tb1[1][1])) 
+can.drawString(200, 603, tb1[0][2]) 
+can.drawString(530, 603, str(tb1[0][1])) 
+can.drawString(200, 587, tb1[1][2]) 
+can.drawString(530, 587, str(tb1[1][1])) 
 can.drawString(200, 572, tb1[2][2]) 
 can.drawString(530, 572, str(tb1[2][1])) 
-can.drawString(200, 561, tb1[3][2]) 
-can.drawString(530, 561, str(tb1[3][1])) 
-can.drawString(200, 547, tb1[4][2]) 
-can.drawString(530, 547, str(tb1[4][1])) 
-can.drawString(200, 536, tb1[5][2]) 
-can.drawString(530, 536, str(tb1[5][1])) 
-can.drawString(200, 524, tb1[6][2]) 
-can.drawString(530, 524, str(tb1[6][1]))
-can.drawString(200, 510, tb1[7][2]) 
-can.drawString(530, 510, str(tb1[7][1]))  
-can.drawString(200, 496, tb1[8][2]) 
-can.drawString(530, 496, str(tb1[8][1]))  
-can.drawString(200, 483, tb1[9][2]) 
-can.drawString(530, 483, str(tb1[9][1]))  
-can.drawString(200, 471, tb1[10][2]) 
-can.drawString(530, 471, str(tb1[10][1]))  
-can.drawString(200, 459, tb1[11][2]) 
-can.drawString(530, 459, str(tb1[11][1]))  
-can.drawString(200, 447, tb1[12][2]) 
-can.drawString(530, 447, str(tb1[12][1]))  
-can.drawString(200, 435, tb1[13][2]) 
-can.drawString(530, 435, str(tb1[13][1]))  
-can.drawString(200, 423, tb1[14][2]) 
-can.drawString(530, 423, str(tb1[14][1]))  
-can.drawString(200, 411, tb1[15][2]) 
-can.drawString(530, 411, str(tb1[15][1]))  
+can.drawString(200, 556, tb1[3][2]) 
+can.drawString(530, 556, str(tb1[3][1])) 
+can.drawString(200, 541, tb1[4][2]) 
+can.drawString(530, 541, str(tb1[4][1])) 
+can.drawString(200, 526, tb1[5][2]) 
+can.drawString(530, 526, str(tb1[5][1])) 
+can.drawString(200, 511, tb1[6][2]) 
+can.drawString(530, 511, str(tb1[6][1]))
+can.drawString(200, 496, tb1[7][2]) 
+can.drawString(530, 496, str(tb1[7][1]))  
+can.drawString(200, 481, tb1[8][2]) 
+can.drawString(530, 481, str(tb1[8][1]))  
+can.drawString(200, 466, tb1[9][2]) 
+can.drawString(530, 466, str(tb1[9][1]))  
+can.drawString(200, 451, tb1[10][2]) 
+can.drawString(530, 451, str(tb1[10][1]))  
+can.drawString(200, 436, tb1[11][2]) 
+can.drawString(530, 436, str(tb1[11][1]))  
+can.drawString(200, 421, tb1[12][2]) 
+can.drawString(530, 421, str(tb1[12][1]))  
+can.drawString(200, 406, tb1[13][2]) 
+can.drawString(530, 406, str(tb1[13][1]))
 ##########################################################tb2  
 #can.drawString(400, 510, tb2[0][2]) 
 #can.drawString(590, 510, str(tb2[0][1]))  
@@ -376,13 +370,13 @@ can.save()
 packet.seek(0)
 new_pdf = PdfFileReader(packet)
 # read your existing PDF
-existing_pdf = PdfFileReader(open(path+"pdfOrg/jalisco.pdf", "rb"))
+existing_pdf = PdfFileReader(open(path+"pdfOrg/cdmx.pdf", "rb"))
 output = PdfFileWriter()
 # add the "watermark" (which is the new pdf) on the existing page
 page = existing_pdf.getPage(0)
 page.mergePage(new_pdf.getPage(0))
 output.addPage(page)
 # finally, write "output" to a real file
-outputStream = open(path+"pdfNew/jalisco.pdf", "wb")
+outputStream = open(path+"pdfNew/cdmx.pdf", "wb")
 output.write(outputStream)
 outputStream.close()

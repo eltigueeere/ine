@@ -25,6 +25,7 @@ from funciones.estados import guerrero as guerrero
 from funciones.estados import sanLuisPotosi as sanLuisPotosi
 from funciones.estados import jalisco as jalisco
 from funciones.estados import zacatecas as zacatecas
+from funciones.estados import cdmx as cdmx
 
 app=Flask(__name__)
 @app.route('/')
@@ -111,8 +112,20 @@ def downloadJaliscoF():
 	return send_file(path, as_attachment=True)
 
 
+
+@app.route('/cdmx')
+def cdmxF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/cdmx.html", lalos=cdmx.excel01(), dia=dia, hora=hora )  
+
+
+@app.route('/downloadCdmx')
+def downloadCdmxF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/cdmx.pdf"
+	return send_file(path, as_attachment=True)
+
+
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
     app.run(debug=True)
-
-
