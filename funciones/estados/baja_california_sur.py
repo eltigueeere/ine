@@ -19,6 +19,7 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
+import os
 
 
 
@@ -115,7 +116,7 @@ def excel01():
     ('VOTOS_NULOS', math.floor(sumaColExcel01['VOTOS_NULOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VOTOS_NULOS']))),
     ('TOTAL', totalDefExc, numerosLetras.numero_a_letras(totalDefExc))
     )
-    print(datos)
+    #print(datos)
     #rb = open_workbook('Baja_California_Sur.xls',formatting_info=True)
     #wb = copy(rb)
     #sheet = wb.get_sheet('dato')
@@ -224,42 +225,49 @@ coalicionDeDosPartidos=""
 dia=time.strftime('%d', time.localtime())
 hora=time.strftime('%H:%M:%S', time.localtime())
 #**********************************ARCHIVO
-#vmre=pd.ExcelFile('C:/Users/eduardo.guerrero/OneDrive - Instituto Nacional Electoral/vmre/vmre.xlsx')
-vmre=pd.ExcelFile('C:/vmre/Aqui_datos/vmre.xlsx')
+url=""
+try:
+    archivo = open('C:/vmre/vmre.cfg', 'r')
+    ruta = archivo.read()
+    url = ruta + "vmre.xlsx"
+    print("Inicia " + estado)
+except:
+    print("Verificar la ruta --> " + url)
+vmre = pd.ExcelFile(url)
 df=vmre.parse('Hoja1')
 #**********************************AGRUPAR
 sumaCol=df.groupby(by=['estados']).sum().groupby(level=[0]).cumsum().loc[estado]
-print("Suma voto " + estado + " PAN = " + str(sumaCol['PAN']))
-print("Suma voto " + estado + " PRI = " + str(sumaCol['PRI']))
-print("Suma voto " + estado + " PRD = " + str(sumaCol['PRD']))
-print("Suma voto " + estado + " VERDE = " + str(sumaCol['VERDE']))
-print("Suma voto " + estado + " PT = " + str(sumaCol['PT']))
-print("Suma voto " + estado + " MOVIMIENTO_CIUDADANO = " + str(sumaCol['MOVIMIENTO_CIUDADANO']))
-print("Suma voto " + estado + " MORENA = " + str(sumaCol['MORENA']))
-print("Suma voto " + estado + " PES = " + str(sumaCol['PES']))
-print("Suma voto " + estado + " RSP = " + str(sumaCol['RSP']))
-print("Suma voto " + estado + " FUERZA_POR_MEXICO = " + str(sumaCol['FUERZA_POR_MEXICO']))
-print("Suma voto " + estado + " NUEVA_ALIANZA = " + str(sumaCol['NUEVA_ALIANZA']))
-##
-print("Suma voto " + estado + " PAZ = " + str(sumaCol['PAZ']))
-print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
-print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
-print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
-print("Suma voto " + estado + " PAN_PRI_PRD = " + str(sumaCol['PAN_PRI_PRD']))
-print("Suma voto " + estado + " PAN_PRI = " + str(sumaCol['PAN_PRI']))
-print("Suma voto " + estado + " PAN_PRD = " + str(sumaCol['PAN_PRD']))
-print("Suma voto " + estado + " PRI_PRD = " + str(sumaCol['PRI_PRD']))
-print("Suma voto " + estado + " PT_VERDE_MORENA_NUEVA_ALIANZA = " + str(sumaCol['PT_VERDE_MORENA_NUEVA_ALIANZA']))
-print("Suma voto " + estado + " PT_VERDE_MORENA = " + str(sumaCol['PT_VERDE_MORENA']))
-print("Suma voto " + estado + " PT_VERDE_NUEVA_ALIANZA = " + str(sumaCol['PT_VERDE_NUEVA_ALIANZA']))
-print("Suma voto " + estado + " PT_MORENA_NUEVA_ALIANZA = " + str(sumaCol['PT_MORENA_NUEVA_ALIANZA']))
-print("Suma voto " + estado + " VERDE_MORENA_NUEVA_ALIANZA = " + str(sumaCol['VERDE_MORENA_NUEVA_ALIANZA']))
-print("Suma voto " + estado + " PT_VERDE = " + str(sumaCol['PT_VERDE']))
-print("Suma voto " + estado + " PT_MORENA = " + str(sumaCol['PT_MORENA']))
-print("Suma voto " + estado + " PT_NUEVA_ALIANZA = " + str(sumaCol['PT_NUEVA_ALIANZA']))
-print("Suma voto " + estado + " VERDE_MORENA = " + str(sumaCol['VERDE_MORENA']))
-print("Suma voto " + estado + " VERDE_NUEVA_ALIANZA = " + str(sumaCol['VERDE_NUEVA_ALIANZA']))
-print("Suma voto " + estado + " MORENA_NUEVA_ALIANZA = " + str(sumaCol['MORENA_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " PAN = " + str(sumaCol['PAN']))
+#print("Suma voto " + estado + " PRI = " + str(sumaCol['PRI']))
+#print("Suma voto " + estado + " PRD = " + str(sumaCol['PRD']))
+#print("Suma voto " + estado + " VERDE = " + str(sumaCol['VERDE']))
+#print("Suma voto " + estado + " PT = " + str(sumaCol['PT']))
+#print("Suma voto " + estado + " MOVIMIENTO_CIUDADANO = " + str(sumaCol['MOVIMIENTO_CIUDADANO']))
+#print("Suma voto " + estado + " MORENA = " + str(sumaCol['MORENA']))
+#print("Suma voto " + estado + " PES = " + str(sumaCol['PES']))
+#print("Suma voto " + estado + " RSP = " + str(sumaCol['RSP']))
+#print("Suma voto " + estado + " FUERZA_POR_MEXICO = " + str(sumaCol['FUERZA_POR_MEXICO']))
+#print("Suma voto " + estado + " NUEVA_ALIANZA = " + str(sumaCol['NUEVA_ALIANZA']))
+###
+#print("Suma voto " + estado + " PAZ = " + str(sumaCol['PAZ']))
+#print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
+#print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
+#print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
+#print("Suma voto " + estado + " PAN_PRI_PRD = " + str(sumaCol['PAN_PRI_PRD']))
+#print("Suma voto " + estado + " PAN_PRI = " + str(sumaCol['PAN_PRI']))
+#print("Suma voto " + estado + " PAN_PRD = " + str(sumaCol['PAN_PRD']))
+#print("Suma voto " + estado + " PRI_PRD = " + str(sumaCol['PRI_PRD']))
+#print("Suma voto " + estado + " PT_VERDE_MORENA_NUEVA_ALIANZA = " + str(sumaCol['PT_VERDE_MORENA_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " PT_VERDE_MORENA = " + str(sumaCol['PT_VERDE_MORENA']))
+#print("Suma voto " + estado + " PT_VERDE_NUEVA_ALIANZA = " + str(sumaCol['PT_VERDE_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " PT_MORENA_NUEVA_ALIANZA = " + str(sumaCol['PT_MORENA_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " VERDE_MORENA_NUEVA_ALIANZA = " + str(sumaCol['VERDE_MORENA_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " PT_VERDE = " + str(sumaCol['PT_VERDE']))
+#print("Suma voto " + estado + " PT_MORENA = " + str(sumaCol['PT_MORENA']))
+#print("Suma voto " + estado + " PT_NUEVA_ALIANZA = " + str(sumaCol['PT_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " VERDE_MORENA = " + str(sumaCol['VERDE_MORENA']))
+#print("Suma voto " + estado + " VERDE_NUEVA_ALIANZA = " + str(sumaCol['VERDE_NUEVA_ALIANZA']))
+#print("Suma voto " + estado + " MORENA_NUEVA_ALIANZA = " + str(sumaCol['MORENA_NUEVA_ALIANZA']))
 #**********************************Fraccion Votos
 #fraccionVotos(votosTotalCoalicion=sumaCol['PT_VERDE_MORENA_NUEVA_ALIANZA'], dividendo=4)
 #fraccionSobrante(votosTotalCoalicion=sumaCol['PT_VERDE_MORENA_NUEVA_ALIANZA'], dividendo=4)
@@ -268,24 +276,24 @@ divicionDeVotos(fraccionVotos(votosTotalCoalicion=sumaCol['MORENA_PT'], dividend
 divicionDeVotosSobranteTres(fraccionSobrante(votosTotalCoalicion=sumaCol['MORENA_PT'], dividendo=2), partidos=["PT","MORENA"] )
 #**********************************
 #**********************************VER FINAL
-print("\n")
-print("####### RESULTADOS FINALES #######")
-print("Suma voto " + estado + " PAN = " + str(sumaCol['PAN']))
-print("Suma voto " + estado + " PRI = " + str(sumaCol['PRI']))
-print("Suma voto " + estado + " PRD = " + str(sumaCol['PRD']))
-print("Suma voto " + estado + " VERDE = " + str(sumaCol['VERDE']))
-print("Suma voto " + estado + " PT = " + str(sumaCol['PT']))
-print("Suma voto " + estado + " MOVIMIENTO_CIUDADANO = " + str(sumaCol['MOVIMIENTO_CIUDADANO']))
-print("Suma voto " + estado + " MORENA = " + str(sumaCol['MORENA']))
-print("Suma voto " + estado + " PES = " + str(sumaCol['PES']))
-print("Suma voto " + estado + " RSP = " + str(sumaCol['RSP']))
-print("Suma voto " + estado + " FUERZA_POR_MEXICO = " + str(sumaCol['FUERZA_POR_MEXICO']))
-print("Suma voto " + estado + " NUEVA_ALIANZA = " + str(sumaCol['NUEVA_ALIANZA']))
-##
-print("Suma voto " + estado + " PAZ = " + str(sumaCol['PAZ']))
-print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
-print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
-print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
+#print("\n")
+#print("####### RESULTADOS FINALES #######")
+#print("Suma voto " + estado + " PAN = " + str(sumaCol['PAN']))
+#print("Suma voto " + estado + " PRI = " + str(sumaCol['PRI']))
+#print("Suma voto " + estado + " PRD = " + str(sumaCol['PRD']))
+#print("Suma voto " + estado + " VERDE = " + str(sumaCol['VERDE']))
+#print("Suma voto " + estado + " PT = " + str(sumaCol['PT']))
+#print("Suma voto " + estado + " MOVIMIENTO_CIUDADANO = " + str(sumaCol['MOVIMIENTO_CIUDADANO']))
+#print("Suma voto " + estado + " MORENA = " + str(sumaCol['MORENA']))
+#print("Suma voto " + estado + " PES = " + str(sumaCol['PES']))
+#print("Suma voto " + estado + " RSP = " + str(sumaCol['RSP']))
+#print("Suma voto " + estado + " FUERZA_POR_MEXICO = " + str(sumaCol['FUERZA_POR_MEXICO']))
+#print("Suma voto " + estado + " NUEVA_ALIANZA = " + str(sumaCol['NUEVA_ALIANZA']))
+###
+#print("Suma voto " + estado + " PAZ = " + str(sumaCol['PAZ']))
+#print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
+#print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
+#print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
 #*********************PDF
 path="C:/vmre/funciones/estados/"
 tb1=excel01()
@@ -398,4 +406,5 @@ output.addPage(page)
 outputStream = open(path+"pdfNew/baja_california_sur.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
+print("Termina " + estado)
 
