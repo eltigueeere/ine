@@ -27,6 +27,10 @@ from funciones.estados import jalisco as jalisco
 from funciones.estados import zacatecas as zacatecas
 from funciones.estados import cdmx as cdmx
 from funciones.estados import michoacan as michoacan
+from funciones.estados import nayarit as nayarit
+from funciones.estados import baja_california_sur as baja_california_sur
+from funciones.estados import queretaro as queretaro
+
 
 app=Flask(__name__)
 @app.route('/')
@@ -140,6 +144,44 @@ def downloadMichoacanF():
 	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/michoacan.pdf"
 	return send_file(path, as_attachment=True)
 
+
+
+@app.route('/nayarit')
+def nayaritF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/nayarit.html", lalos=nayarit.excel01(), lalos2=nayarit.excel02(), lalos3=nayarit.excel03(), dia=dia, hora=hora )  
+
+
+@app.route('/downloadNayarit')
+def downloadNayaritF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/nayarit.pdf"
+	return send_file(path, as_attachment=True)
+
+@app.route('/baja_california_sur')
+def baja_california_surF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/baja_california_sur.html", lalos=baja_california_sur.excel01(), lalos2=baja_california_sur.excel02(), lalos3=baja_california_sur.excel03(), dia=dia, hora=hora )  
+
+
+@app.route('/downloadBaja_california_sur')
+def downloadBaja_california_surF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/baja_california_sur.pdf"
+	return send_file(path, as_attachment=True)
+
+
+@app.route('/queretaro')
+def queretaroF():
+    dia=time.strftime('%d', time.localtime())
+    hora=time.strftime('%H:%M:%S', time.localtime())
+    return render_template("pdf/queretaro.html", lalos=queretaro.excel01(), lalos2=queretaro.excel02(), lalos3=queretaro.excel03(), dia=dia, hora=hora )  
+
+
+@app.route('/downloadQueretaro')
+def downloadQueretaroF():
+	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/queretaro.pdf"
+	return send_file(path, as_attachment=True)
 
 
 if __name__ == '__main__':
