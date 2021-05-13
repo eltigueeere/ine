@@ -46,7 +46,7 @@ def zacatecasF():
 
 @app.route('/downloadZacatecas')
 def downloadZacatecasF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/zacatecas.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/zacatecas.pdf"
 	return send_file(path, as_attachment=True)
     
 
@@ -59,7 +59,7 @@ def chihuahuaF():
 
 @app.route('/downloadChihuahua')
 def downloadChihuahuaF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/chihuahua.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/chihuahua.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -72,7 +72,7 @@ def colimaF():
 
 @app.route('/downloadColima')
 def downloadColimaF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/colima.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/colima.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -85,7 +85,7 @@ def guerreroF():
 
 @app.route('/downloadGuerrero')
 def downloadGuerreroF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/guerrero.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/guerrero.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -100,7 +100,7 @@ def sanLuisPotosiF():
 
 @app.route('/downloadSanLuisPotosi')
 def downloadSanLuisPotosiF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/san_luis.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/san_luis.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -113,7 +113,7 @@ def jaliscoF():
 
 @app.route('/downloadJalisco')
 def downloadJaliscoF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/jalisco.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/jalisco.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -127,7 +127,7 @@ def cdmxF():
 
 @app.route('/downloadCdmx')
 def downloadCdmxF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/cdmx.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/cdmx.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -141,7 +141,7 @@ def michoacanF():
 
 @app.route('/downloadMichoacan')
 def downloadMichoacanF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/michoacan.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/michoacan.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -155,7 +155,7 @@ def nayaritF():
 
 @app.route('/downloadNayarit')
 def downloadNayaritF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/nayarit.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/nayarit.pdf"
 	return send_file(path, as_attachment=True)
 
 @app.route('/baja_california_sur')
@@ -167,7 +167,7 @@ def baja_california_surF():
 
 @app.route('/downloadBaja_california_sur')
 def downloadBaja_california_surF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/baja_california_sur.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/baja_california_sur.pdf"
 	return send_file(path, as_attachment=True)
 
 
@@ -180,7 +180,7 @@ def queretaroF():
 
 @app.route('/downloadQueretaro')
 def downloadQueretaroF():
-	path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/pdfNew/queretaro.pdf"
+	path="C:/vmre/funciones/estados/pdfNew/queretaro.pdf"
 	return send_file(path, as_attachment=True)
 
 

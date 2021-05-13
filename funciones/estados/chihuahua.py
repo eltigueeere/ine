@@ -233,7 +233,8 @@ coalicionDeDosPartidos=""
 dia=time.strftime('%d', time.localtime())
 hora=time.strftime('%H:%M:%S', time.localtime())
 #**********************************ARCHIVO
-vmre=pd.ExcelFile('C:/Users/eduardo.guerrero/OneDrive - Instituto Nacional Electoral/vmre/vmre.xlsx')
+#vmre=pd.ExcelFile('C:/Users/eduardo.guerrero/OneDrive - Instituto Nacional Electoral/vmre/vmre.xlsx')
+vmre=pd.ExcelFile('C:/vmre/Aqui_datos/vmre.xlsx')
 df=vmre.parse('Hoja1')
 #**********************************AGRUPAR
 sumaCol=df.groupby(by=['estados']).sum().groupby(level=[0]).cumsum().loc[estado]
@@ -307,7 +308,7 @@ print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
 print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
 print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
 #*********************PDF
-path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/"
+path="C:/vmre/funciones/estados/"
 tb1=excel01()
 tb2=excel02()
 tb3=excel03()

@@ -110,7 +110,7 @@ def excel01():
     ('FUERZA POR MEXICO', math.floor(sumaColExcel01['FUERZA_POR_MEXICO']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['FUERZA_POR_MEXICO']))),
     ('CI', math.floor(sumaColExcel01['CI_01_GUERRERO']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['CI_01_GUERRERO']))),
     ('PRI_PRD', math.floor(sumaColExcel01['PRI_PRD']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PRI_PRD']))),
-    ('PT_VERDE', math.floor(sumaColExcel01['PRI_PRD']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PRI_PRD']))),
+    ('PT_VERDE', math.floor(sumaColExcel01['PT_VERDE']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PT_VERDE']))),
     ('CANDIDATOS_NO_REGISTRADOS', math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']))),
     ('VOTOS_NULOS', math.floor(sumaColExcel01['VOTOS_NULOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VOTOS_NULOS']))),
     ('TOTAL', totalDefExc, numerosLetras.numero_a_letras(totalDefExc))
@@ -222,7 +222,8 @@ coalicionDeDosPartidos=""
 dia=time.strftime('%d', time.localtime())
 hora=time.strftime('%H:%M:%S', time.localtime())
 #**********************************ARCHIVO
-vmre=pd.ExcelFile('C:/Users/eduardo.guerrero/OneDrive - Instituto Nacional Electoral/vmre/vmre.xlsx')
+#vmre=pd.ExcelFile('C:/Users/eduardo.guerrero/OneDrive - Instituto Nacional Electoral/vmre/vmre.xlsx')
+vmre=pd.ExcelFile('C:/vmre/Aqui_datos/vmre.xlsx')
 df=vmre.parse('Hoja1')
 #**********************************AGRUPAR
 sumaCol=df.groupby(by=['estados']).sum().groupby(level=[0]).cumsum().loc[estado]
@@ -286,7 +287,7 @@ print("Suma voto " + estado + " DIGNIDAD = " + str(sumaCol['DIGNIDAD']))
 print("Suma voto " + estado + " PP = " + str(sumaCol['PP']))
 print("Suma voto " + estado + " LA_FAMILIA = " + str(sumaCol['LA_FAMILIA']))
 #*********************PDF
-path="C:/Users/eduardo.guerrero/Documents/ine/flask/vmre/funciones/estados/"
+path="C:/vmre/funciones/estados/"
 tb1=excel01()
 tb2=excel02()
 tb3=excel03()
