@@ -1,20 +1,20 @@
-ECHO -----------   UPGRADE pip   -----------
+@ECHO -----------   UPGRADE pip   -----------
 python -m pip install --upgrade pip
-ECHO -----------   xlrd   --------------
+@ECHO -----------   xlrd   --------------
 pip install xlrd
-ECHO -----------   xlutils   --------------
+@ECHO -----------   xlutils   --------------
 pip install xlutils
-ECHO -----------   numpy   --------------
+@ECHO -----------   numpy   --------------
 pip install numpy
-ECHO -----------   pandas   --------------
+@ECHO -----------   pandas   --------------
 pip install pandas
-ECHO -----------   openpyxl   --------------
+@ECHO -----------   openpyxl   --------------
 pip install openpyxl
-ECHO -----------   PyPDF2   --------------
+@ECHO -----------   PyPDF2   --------------
 pip install PyPDF2
-ECHO -----------   reportlab   --------------
+@ECHO -----------   reportlab   --------------
 pip install reportlab
-ECHO -----------   flask   --------------
+@ECHO -----------   flask   --------------
 pip install flask
-ECHO -----------   FIN   --------------
+@ECHO -----------   FIN   --------------
 
