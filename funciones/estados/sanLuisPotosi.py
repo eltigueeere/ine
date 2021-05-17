@@ -101,8 +101,8 @@ def excel01():
     ('PAN', math.floor(sumaColExcel01['PAN']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PAN']))),
     ('PRI', math.floor(sumaColExcel01['PRI']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PRI']))),
     ('PRD', math.floor(sumaColExcel01['PRD']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PRD']))),
-    ('VERDE', math.floor(sumaColExcel01['VERDE']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VERDE']))),
     ('PT', math.floor(sumaColExcel01['PT']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PT']))),
+    ('VERDE', math.floor(sumaColExcel01['VERDE']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VERDE']))),
     ('CP', math.floor(sumaColExcel01['CP']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['CP']))),
     ('MOVIMIENTO CIUDADANO', math.floor(sumaColExcel01['MOVIMIENTO_CIUDADANO']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['MOVIMIENTO_CIUDADANO']))),
     ('MORENA', math.floor(sumaColExcel01['MORENA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['MORENA']))),
@@ -150,8 +150,8 @@ def excel02():
     ('PAN', math.floor(sumaCol['PAN']),numerosLetras.numero_a_letras(math.floor(sumaCol['PAN']))),
     ('PRI', math.floor(sumaCol['PRI']),numerosLetras.numero_a_letras(math.floor(sumaCol['PRI']))),
     ('PRD', math.floor(sumaCol['PRD']),numerosLetras.numero_a_letras(math.floor(sumaCol['PRD']))),
-    ('VERDE', math.floor(sumaCol['VERDE']),numerosLetras.numero_a_letras(math.floor(sumaCol['VERDE']))),
     ('PT', math.floor(sumaCol['PT']),numerosLetras.numero_a_letras(math.floor(sumaCol['PT']))),
+    ('VERDE', math.floor(sumaCol['VERDE']),numerosLetras.numero_a_letras(math.floor(sumaCol['VERDE']))),
     ('CP', math.floor(sumaCol['CP']),numerosLetras.numero_a_letras(math.floor(sumaCol['CP']))),
     ('MOVIMIENTO CIUDADANO', math.floor(sumaCol['MOVIMIENTO_CIUDADANO']),numerosLetras.numero_a_letras(math.floor(sumaCol['MOVIMIENTO_CIUDADANO']))),
     ('MORENA', math.floor(sumaCol['MORENA']),numerosLetras.numero_a_letras(math.floor(sumaCol['MORENA']))),
@@ -234,7 +234,7 @@ coalicionDeDosPartidoUno=""
 coalicionDeDosPartidoDos=""
 coalicionDeDosPartidos=""
 dia=time.strftime('%d', time.localtime())
-hora=time.strftime('%H:%M:%S', time.localtime())
+hora=time.strftime('%H:%M', time.localtime())
 #**********************************ARCHIVO
 url=""
 try:
@@ -345,7 +345,7 @@ tb3=excel03()
 packet = io.BytesIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
-can.drawString(43, 516, str(hora))
+can.drawString(48, 521, str(hora))
 #can.drawString(190, 513, str(dia))
 #can.drawString(30, 503, "CENTRO DE ESCRUTINIO Y CÓMPUTO")
 can.drawString(90, 371, tb1[0][2]) 

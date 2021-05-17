@@ -66,7 +66,7 @@ endobj
 /Properties <<
 /MC0 60 0 R
 >>
-/ProcSet [ /ImageI /Text /PDF /ImageB /ImageC ]
+/ProcSet [ /ImageI /Text /ImageC /ImageB /PDF ]
 >>
 /Thumb 63 0 R
 /TrimBox [ 0 0 963.779 609.449 ]
@@ -14844,12 +14844,12 @@ BT
 ET
 BT
 1 0 0 1 60 502 Tm
-(17\07208\07243) Tj
+(12\07214\07219) Tj
 T*
 ET
 BT
 1 0 0 1 190 502 Tm
-(14) Tj
+(17) Tj
 T*
 ET
 BT
