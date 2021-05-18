@@ -184,6 +184,21 @@ def downloadQueretaroF():
 	return send_file(path, as_attachment=True)
 
 
+@app.route('/inicio')
+def inicio():
+	return render_template("vistas/inicio.html")
+
+
+@app.route('/baja_sur_mec_1/')
+def baja_sur_mec_1():
+	return render_template("vistas/baja_sur_mec_1.html")
+
+
+
+
+
+
+
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
     app.run(debug=True)
