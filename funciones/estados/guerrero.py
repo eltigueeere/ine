@@ -301,6 +301,7 @@ tb3=excel03()
 packet = io.BytesIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
+can.drawString(100, 493, "Guerrro")
 can.drawString(60, 465, str(hora))
 can.drawString(195, 465, str(dia))
 can.drawString(30, 453, "CENTRO DE ESCRUTINIO Y CÓMPUTO")
