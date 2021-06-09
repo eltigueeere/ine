@@ -131,7 +131,7 @@ def excel01():
     ('PT_VERDE', math.floor(sumaColExcel01['PT_VERDE']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PT_VERDE']))),
     ('PT_MORENA', math.floor(sumaColExcel01['PT_MORENA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PT_MORENA']))),
     ('PT_NUEVA_ALIANZA', math.floor(sumaColExcel01['PT_NUEVA_ALIANZA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['PT_NUEVA_ALIANZA']))),
-    ('VERDE_MORENA', math.floor(sumaColExcel01['VERDE_MORENA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VERDE_NUEVA_ALIANZA']))),
+    ('VERDE_MORENA', math.floor(sumaColExcel01['VERDE_MORENA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VERDE_MORENA']))),
     ('VERDE_NUEVA_ALIANZA', math.floor(sumaColExcel01['VERDE_NUEVA_ALIANZA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['VERDE_NUEVA_ALIANZA']))),
     ('MORENA_NUEVA_ALIANZA', math.floor(sumaColExcel01['MORENA_NUEVA_ALIANZA']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['MORENA_NUEVA_ALIANZA']))),
     ('CANDIDATOS_NO_REGISTRADOS', math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']),numerosLetras.numero_a_letras(math.floor(sumaColExcel01['CANDIDATOS_NO_REGISTRADOS']))),
